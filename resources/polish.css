@@ -1,0 +1,1063 @@
+/*
+**********************************************************************************************************************
+**********************************************************************************************************************
+******** COLORS*******************************************************************************************************
+**********************************************************************************************************************
+**********************************************************************************************************************
+*/
+
+colors {
+	bgbColor1: #b6e4d9;
+	bgbColor2: #60b9ae;
+	bgcColor1: #b6e4d9;
+	bgcColor2: #60b9ae;
+	buttonBgColor1: white;
+	buttonBgColor2: #c6c5c5;
+	buttonBgHoverColor1: #E3CFBA;
+	buttonBgHoverColor2: #cba58f;
+	buttonBorderColor1: green;
+	buttonBorderHoverColor1: #F00;
+	buttonBorderHoverColor2: #cba58f;
+	buttonFontColor: black;
+	buttonFontHoverColor: #f2f2f2;
+	
+	
+
+	chatTextBgColor: #c3c3c3;
+	chatTextBgHoverColor: #ffffff;
+	chatTextFontColor: #404040;
+	chatTextFontHoverColor: #000000;
+	commandBgGradientColor: #c6c5c5;
+	commandBgMaskColor : #cbddd3;
+	commandBgPressedGradientColor1: #cdcecf;
+	commandBgPressedGradientColor2: #0e0e01;
+	completeBgColor: #bbfedb;
+	
+	dropShadowColor: #a333;
+
+	gs1: #cbe3ba;
+	gs2: #a6cc8b;
+	gsh: #717373;
+	gsh2: #54575a;
+	
+	gistColor1: #96d1b9 ;
+	gistColor2: #164f38 ;	
+	gistSilver1: #ffffff ;
+	gistSilver2: #c6c5c5; 
+
+	gradientTopColor: #848f60;
+	
+	infoFontColor: black;
+	
+	labelFontColor: #786868;
+	leftcommandFontColor: #786868;
+	leftcommandPressedFontColor: red;
+
+
+	mailTickerFontColor: #786868;
+	mainMenuItemBgColor1: #E2F2E1;
+	mainMenuItemBgColor2: #C7EAD1;
+	mainMenuItemBorderColor: #E3CFBA;
+	mainMenuItemFontColor: #51626f;	
+	mainMenuItemHoverBgColor1: #E3CFBA;
+	mainMenuItemHoverBgColor2: #cba58f;
+	mainMenuItemHoverFontColor: black;
+
+	mainMenuItemIIHoverBorderColor: #ae8067;
+	mainMenuItemEmphasisBgColor1: #E3CFBA;
+	mainMenuItemEmphasisBgColor2: #cba58f;	
+	mainMenuItemEmphasisFontColor: #51626f;	
+	mainMenuItemEmphasisHoverBgColor1: #cba58f;
+	mainMenuItemEmphasisHoverBgColor2: #cba58f;
+	mainMenuItemEmphasisHoverFontColor: white;
+	mainMenuItemMessageBgColor1: #ded4d7;
+	mainMenuItemMessageBgColor2: #deaec2;	
+	mainMenuItemMessageFontColor: #51626f;
+	mainMenuItemMessageHoverBgColor1: #deaec2;
+	mainMenuItemMessageHoverBgColor2: #deaec2;
+	mainMenuItemMessageHoverFontColor: white;
+	mainMenuItemOfflineBgColor1: #d1d4d3;
+	mainMenuItemOfflineBgColor2: #a2a5a4;	
+	mainMenuItemOfflineFontColor: #51626f;
+	mainMenuItemOfflineHoverBgColor1: #a2a5a4;
+	mainMenuItemOfflineHoverBgColor2: #a2a5a4;
+	mainMenuItemOfflineHoverFontColor: white;
+	menuBgColor1: #A1C4BB;	
+	menuBgColor2: #E3CFBA;	
+
+	menuItemFontColor: black;	
+	menuItemHoverBgColor1: #E3CFBA;	
+	menuItemHoverFontColor: black;
+	messageBgColor1: #ECE5CE;
+	messageBgColor2: #ECE5CE;
+	messagePalBgColor1: #E2F2E1;
+	messagePalBgColor2: #E2F2E1;
+	messagePalBorderColor1: #60b9ae;
+	messagePalBorderColor2: #959595;
+	messagePalHoverBorderColor1: #99173C;
+	messagePalHoverBorderColor2: #555152; 
+	messageheadlineFontColor: #8c98a0;
+	messagetextFontColor: #786868;
+	myItemLabelFontColor: white;
+	myLabelFontColor: green;
+	myLabelInfoFontColor: red;
+	myLabelItemsBgColor1: #EFFFCD; 
+	myLabelItemsBgColor2: #DCE9BE;
+	myLabelItemsFontColor: white;
+	myLabelItemsHoverBgColor1: #555152;
+	myLabelItemsHoverBgColor2: #DCE9BE;
+	myLabelItemsHoverFontColor: #99173C; 
+	mylabelBgHoverColor1: #f3f3f3;
+	myLabelEditableBgColor: white;
+
+	notifBgColor1: #ffffff;
+	notifGFontColor: green;
+	notifRFontColor: red;	
+	
+	popupAlertBgColor1: white;
+	popupAlertBgColor2: #f2f2f2;
+	popupAlertFontColor: black;
+	pulsatingStart: #c6c5c5;
+	pulsatingEnd: #164f38;		
+	
+	roundRectBorderColor: white; 
+	
+	squareFocusedBorderColor: #cf9;
+	
+
+	textFieldHoverBorderColor: red;
+	textFieldsFontColor: #656565;
+	textFieldsFontColorHover: #3f3f3f;
+	textFieldsBgColor: #c3c3c3;	
+	titleBgColor1: #E3CFBA;
+	titleBgColor2: #cba58f;
+	titlefc: #786868;
+	}
+/*
+**********************************************************************************************************************
+**********************************************************************************************************************
+******** BORDERS *****************************************************************************************************
+**********************************************************************************************************************
+**********************************************************************************************************************
+*/
+
+borders {
+	allRoundGlow{
+		type: drop-shadow;
+		width: 2;
+		inner-color: white;
+		outer-color: bgcColor1;
+		orientation: all;
+		}
+	buttonBorder{
+		type: round-rect;
+	}
+	buttonBorderHover{
+		type: round-rect;
+	}
+	chatTextFieldBorder{
+		color: titleBgColor1;
+		width: 2;
+	}
+	chatTextFieldHoverBorder{
+		color: titleBgColor1;
+		width: 2;
+		}
+	dropShadow {
+		type: round-rect-drop-shadow;
+		inner-color: dropShadowColor;
+		outer-color: bgcColor2;
+		orientation: all;
+	}	
+	mainMenuItemBorder{	
+		type: bottom;
+		width: 2;	
+		color: mainMenuItemBorderColor;
+	}
+	mainMenuItemIIBorder{
+		width: 2px;
+		color: white;
+	}
+	mainMenuItemIIHoverBorder{
+		width: 2px;	
+		color: mainMenuItemIIHoverBorderColor;
+	}
+	menuItemBorder{
+		type: bottom;
+		color: #999;
+	}
+	messageBorder{
+		type: drop-shadow;
+		inner-color: messagePalBorderColor1;
+		outer-color: messagePalBorderColor2;
+		width: 2;
+		orientation: bottom-right;		/*bottom-right,top-right,bottom-left,top-left,all*/
+	}
+
+	messagePalBorder{
+		type: drop-shadow;
+		inner-color: messagePalBorderColor1;
+		outer-color: messagePalBorderColor2;
+		width: 2;
+		orientation: bottom-left;			/*bottom-right,top-right,bottom-left,top-left,all*/ 
+	}
+	messageHoverBorder{
+		type: drop-shadow;
+		inner-color: messagePalHoverBorderColor1;
+		outer-color: messagePalHoverBorderColor2;
+		width: 2;
+		orientation: bottom-right;
+		
+	}
+
+	messagePalHoverBorder{
+		type: drop-shadow;
+		inner-color: messagePalHoverBorderColor1;
+		outer-color: messagePalHoverBorderColor2;
+		width: 2;
+		orientation: bottom-left;		/*bottom-right,top-right,bottom-left,top-left,all*/
+	}
+	popupAlertBorder{
+		type: round-rect;
+		arc-height: 2;
+		color: titleBgColor2;
+	}
+	roundRectBorder{
+		type: round-rect;
+		color: roundRectBorderColor;
+	}
+	squareFocusedBorder {
+		color: squareFocusedBorderColor;
+		width: 1;
+	}	
+	
+	textFieldBorder{
+		color: #717373;
+		width: 2;
+	}
+	textFieldHoverBorder{
+		color: #717373;
+		width: 2;
+		}
+}
+
+	
+/*
+**********************************************************************************************************************
+**********************************************************************************************************************
+******** BACKGROUNDS**************************************************************************************************
+**********************************************************************************************************************
+**********************************************************************************************************************
+*/
+
+
+backgrounds {
+	bgb{
+		type: vertical-gradient;
+		top-color: bgcColor1;
+		bottom-color: bgcColor2;
+		top: title;
+		bottom: menubar;
+		}
+	bgc{
+		type: vertical-gradient;
+		top-color: bgcColor1;
+		bottom-color: bgcColor2;
+		top: title;
+		bottom: menubar;
+	}
+	buttonBg{
+		type: vertical-gradient;
+		top-color: buttonBgColor1;
+		bottom-color: buttonBgColor2;
+		}
+	buttonBgHover{
+		type: vertical-gradient;
+		top-color: buttonBgHoverColor1;
+		bottom-color: buttonBgHoverColor2;
+		}
+	chatTextBg{
+		color: chatTextBgColor;
+	}
+	chatTextBgHover{
+		color: chatTextBgHoverColor;
+	}
+	gistColour{
+		type: vertical-gradient;		
+		top-color: gistColor1;
+		bottom-color: gistColor2;
+	}
+	gistsilver{
+		type: vertical-gradient;		
+		top-color: gistSilver1;
+		bottom-color: gistSilver2;
+	}	
+	login{
+		color: white;
+		type: animated-gif;
+		image: url(loader2.gif);
+		anchor: hcenter | vcenter;
+	}
+	mainMenuItemBg {
+		color: mainMenuItemBgColor1;
+	}
+	mainMenuItemHoverBg {
+		color: mainMenuItemHoverBgColor1;
+	}
+	mainMenuItemPressedBg {
+		color: mainMenuItemHoverBgColor1;
+	}	
+	mainMenuItemEmphasisBg {
+		color: mainMenuItemEmphasisBgColor1;
+	}
+	mainMenuItemEmphasisHoverBg {
+		color: mainMenuItemEmphasisHoverBgColor2;
+	}
+	mainMenuItemEmphasisPressedBg {
+		color: mainMenuItemEmphasisHoverBgColor2;
+	}		
+	mainMenuItemMessageBg {
+		type: vertical-gradient;
+		top-color: mainMenuItemMessageBgColor1;
+		bottom-color: mainMenuItemMessageBgColor2;
+	}
+	mainMenuItemMessageHoverBg {
+		type: vertical-gradient;
+		top-color: mainMenuItemMessageHoverBgColor1;
+		bottom-color: mainMenuItemMessageHoverBgColor2;
+	}
+	mainMenuItemMessagePressedBg {
+		type: vertical-gradient;
+		top-color: mainMenuItemMessageHoverBgColor1;
+		bottom-color: mainMenuItemMessageHoverBgColor2;
+	}		
+	mainMenuItemOfflineBg {
+		color: mainMenuItemOfflineBgColor1;
+	}
+	mainMenuItemOfflineHoverBg {
+		color: mainMenuItemOfflineHoverBgColor2;
+	}
+	mainMenuItemOfflinePressedBg {
+		color: mainMenuItemOfflineHoverBgColor2;
+	}	
+	menuBg{
+		type: round-tab;
+		color: menuBgColor1;
+	}	
+	menuItemFocusedFirstBg{
+		type: round-tab;
+		color: white;
+	}
+	menuItemHoverBg{
+		background-color: menuItemHoverBgColor1;
+	}
+	messageBg{
+		type: vertical-gradient;
+		top-color: messageBgColor1;
+		bottom-color: messageBgColor2;
+		}
+	messagePalBg{
+		type: vertical-gradient;
+		top-color: messagePalBgColor1;
+		bottom-color: messagePalBgColor2;
+		}
+	myLabelItemsBg{
+		type: vertical-gradient;
+		top-color: myLabelItemsBgColor1;
+		bottom-color: myLabelItemsBgColor2;
+		}
+	myLabelItemsHoverBg{
+		type: vertical-gradient;
+		top-color: myLabelItemsHoverBgColor1;
+		bottom-color: myLabelItemsHoverBgColor2;
+		}
+	myLabelEditableBg{
+		color: myLabelEditableBgColor;
+		}
+	myLabelBgHover{
+		color: mylabelBgHoverColor1;
+		}
+	notifBg{
+		type: round-rect;
+		color: notifBgColor1;
+	}
+	popupAlertBg{
+		type: vertical-gradient;
+		top-color: popupAlertBgColor1;
+		bottom-color: popupAlertBgColor2;
+	}
+	titleBg{
+		type: vertical-gradient;
+		top-color: titleBgColor1;
+		bottom-color: titleBgColor2;
+	}
+}
+	
+	
+/*
+**********************************************************************************************************************
+**********************************************************************************************************************
+******** FONTS *******************************************************************************************************
+**********************************************************************************************************************
+**********************************************************************************************************************
+*/
+
+
+
+fonts{
+	buttonFont{
+		font-color: buttonFontColor;
+		}
+	buttonFontHover{
+		font-color: buttonFontHoverColor;
+	}
+	buttonFontPressed{
+		font-color: red;
+	}
+	chatTextFont{
+		font-color: chatTextFontColor;
+	}
+	chatTextFontHover{
+		font-color: chatTextFontHoverColor;
+	}
+	mainMenuItemFont{		
+		/*font-size: small;*/
+		font-color: mainMenuItemFontColor;
+	}
+	mainMenuItemHoverFont{		
+		/*font-size: small;*/
+		font-color: mainMenuItemHoverFontColor;
+	}
+	mainMenuItemPressedFont{	
+	/*	font-size: small;*/
+		font-color: titleBgColor1;
+	}
+	mainMenuItemEmphasisFont{		
+		/*font-size: small;*/
+		font-color: mainMenuItemEmphasisFontColor;
+	}
+	mainMenuItemEmphasisHoverFont{		
+		/*font-size: small;*/
+		font-color: mainMenuItemEmphasisHoverFontColor;		
+	}
+	mainMenuItemEmphasisPressedFont{	
+		/*font-size: small;*/
+		font-color: red;
+	}
+	mainMenuItemMessageFont{		
+		/*font-size: small;*/
+		font-color: mainMenuItemMessageFontColor;
+		font-style: bold;
+	}
+	mainMenuItemMessageHoverFont{		
+		/*font-size: small;*/
+		font-color: mainMenuItemMessageHoverFontColor;
+		font-style: bold;
+	}
+	mainMenuItemMessagePressedFont{	
+		/*font-size: small;*/
+		font-color: red;
+		font-style: bold;
+	}
+	mainMenuItemOfflineFont{		
+		/*font-size: small;*/
+		font-color: mainMenuItemOfflineFontColor;
+	}
+	mainMenuItemOfflineHoverFont{		
+		/*font-size: small;*/
+		font-color: mainMenuItemOfflineHoverFontColor;
+	}
+	mainMenuItemOfflinePressedFont{	
+		/*font-size: small;*/
+		font-color: red;
+	}
+	mailTickerFont{
+		font-style: normal;
+		font-color: mailTickerFontColor;
+		font-size: small;
+	}
+	menuItemFont{
+		font-color: menuItemFontColor;
+		font-size: normal;
+	}
+	menuItemHoverFont{
+		font-color: menuItemHoverFontColor;
+		font-size: normal;
+	}
+	menuItemFocusedFirstFont{
+		font-color: menuItemHoverFontColor;
+		font-size: normal;
+	}
+	myItemLabelFont{
+		font-color: white;
+		font-style:  bold;
+		}
+	myLabelInfoFont{
+		color: myLabelInfoFontColor;
+		}
+	myLabelItemsFont{
+		color: myLabelItemsFontColor ;
+		font-size: normal;
+	}
+	myLabelItemsHoverFont{
+		color: myLabelItemsHoverFontColor ;
+	}
+	myLabelFont{
+		color: myLabelFontColor;
+		}
+	messageheadlineFont{
+		font-size: small;
+		font-color: messageheadlineFontColor;
+		}
+	messagetextFont{
+		font-color: messagetextFontColor;
+		font-size: small;
+		}
+	popupAlertFont{
+		font-color: popupAlertFontColor;
+		font-size: small;
+	}
+	textFieldsFont{
+		/*size: small;*/
+		color: textFieldsFontColor;	
+	}
+	textFieldsHoverFont{
+		font-color: #3f3f3f;
+	/*	font-size: small;*/
+	}
+	titlef{
+		color: titlefc;
+		}
+}
+
+	
+/*
+**********************************************************************************************************************
+**********************************************************************************************************************
+********  Screens  ***************************************************************************************************
+********  CODE     ***************************************************************************************************
+********  Below    ***************************************************************************************************
+**********************************************************************************************************************
+**********************************************************************************************************************
+*/
+.loading{
+	background: login;
+}
+.mainMenuScreen {
+	layout: horizontal-center | top;
+	margin: 0;
+	background: bgb;
+}
+.mainMenuScreenTop {
+	layout: horizontal-center | top;
+	background: bgb;
+}
+.mainMenuScreenChat {
+	layout: horizontal-center | top;
+	background: bgb;
+}
+.popupAlert {
+	margin: 10%;
+	repaint-previous-screen: true;
+	layout: vertical-shrink | horizontal-shrink | vertical-center | horizontal-center;
+	padding: 5%;
+	background: popupAlertBg;
+	border: popupAlertBorder;
+	font: popupAlertFont;
+	icon-image-align-next: false;
+	icon-image-align: top; /* left,right,top,bottom,center */
+}
+.popupAlertError extends popupAlert{
+	font-color: red;
+	font-style: bold;
+}
+.popAlert extends .mainMenuScreen {
+	margin: 10%;
+	layout: horizontal-center  ;
+	repaint-previous-screen: true;
+	border: allRoundGlow;
+	}
+title {
+	padding: 0px;
+	padding-right: 5px;
+	min-width: 100%;
+	font: titlef;
+	background: titleBg;
+	text-layout: hshrink | hcenter; /*	left, horizontal-center, h-center, hcenter, center, right, top, vertical-center, v-center, vcenter, bottom, horizontal-expand, h-expand, hexpand, expand, vertical-expand, v-expand, vexpand, horizontal-shrink, h-shrink, hshrink, vertical-shrink, v-shrink, vshrink, newline-after, newline-before	*/
+	
+	/*layout: horizontal-center | vertical-center;;
+	*/
+}
+
+
+
+
+/*
+**********************************************************************************************************************
+********  Items    ***************************************************************************************************
+********  CODE     ***************************************************************************************************
+********  Below    ***************************************************************************************************
+**********************************************************************************************************************
+*/
+
+.button{
+	margin-top: 2px;
+	margin-left: 10;
+	margin-right: 10;
+	padding: 5;
+	font: buttonFont;
+	background: buttonBg;
+	border: buttonBorder;
+	/*layout: expand;	*/
+}
+.button:hover{
+	background: buttonBgHover;
+	font: buttonFontHover;
+}
+
+.button:hover:pressed{
+	font: buttonFontPressed;
+	
+}
+.buttonSm{
+	margin: 0;
+	padding: 5;
+	font: buttonFont;
+	background: buttonBg;
+	border: buttonBorder;
+	width: 5%;
+	layout: right;
+}
+.buttonSm:hover{
+	background: buttonBgHover;
+}
+.buttonSm:hover:pressed{
+	font: buttonFontPressed;
+	
+}
+
+.chatText{
+	text-effect: smiley;
+	background: chatTextBg;
+	border: chatTextFieldBorder;
+	font: chatTextFont;
+	layout: left ;/*| expand*/
+	width: 100%;
+}
+.chatText:hover{
+	text-effect: smiley;
+	background: chatTextBgHover;
+	border: chatTextFieldHoverBorder;
+	font: chatTextFontHover;
+}
+.imageAlign{	
+	layout: horizontal-center | horizontal-expand;
+}
+.imageAlign :hover{
+}
+label {
+	font-size: small;
+	margin-top: 3px;
+	margin-bottom: 3px;
+	margin-left: 10;
+	margin-right: 10;
+	layout: left | vertical-center;/* | newline-after*/
+	font-color: labelFontColor;
+}
+.mainMenuItem {
+	text-effect: smiley;
+	margin:  0px;
+	margin-left: 6%;
+	margin-right: 6%;
+	padding: 2px;
+	font: mainMenuItemFont;
+	layout: expand | vertical-center ;/*| center */
+	/*border: roundRectBorder;*/
+	border: mainMenuItemBorder;
+	background: mainMenuItemBg;
+	//#if polish.android
+		min-height: 18%;
+	//#endif
+	checkbox-selected: url(v.png);
+	checkbox-plain:  url(x.png);
+	box-align: right;
+	icon-image-align: left; /* left,right,top,bottom,center */
+}
+
+.mainMenuItem:hover {
+	font: mainMenuItemHoverFont;
+	background: mainMenuItemHoverBg;
+}
+
+.mainMenuItem:pressed {
+	font: mainMenuItemPressedFont;
+	background: mainMenuItemHoverBg;
+	/*border: mainMenuItemPressedBorder;*/
+}
+
+
+.mainMenuItemAnimated extends mainMenuItem {
+	font: mainMenuItemFont;
+}
+
+.mainMenuItemAnimated:hover {
+	background: mainMenuItemHoverBg;
+	font: mainMenuItemHoverFont;
+}
+
+.mainMenuItemAnimated:pressed {
+	font: mainMenuItemPressedFont;
+	background: mainMenuItemPressedBg;
+}
+
+.mainMenuItemNonAnimated extends mainMenuItem {
+	
+}
+
+.mainMenuItemNonAnimated:hover {
+	background: mainMenuItemHoverBg;
+	font: mainMenuItemHoverFont;
+}
+
+.mainMenuItemNonAnimated:pressed {
+	x-adjust: 0%;
+	font: mainMenuItemPressedFont;
+	background: mainMenuItemPressedBg;
+}
+.mainMenuItemII {
+	text-effect: smiley;
+	margin-top: 1;
+	padding: 1px;
+	font: mainMenuItemFont;
+	layout: expand | vertical-center ;
+	background: mainMenuItemBg;
+	//#if polish.android
+		min-height: 18%;
+	//#endif
+	checkbox-selected: url(v.png);
+	checkbox-plain:  url(x.png);
+	box-align: right;
+	icon-image-align: left; /* left,right,top,bottom,center */
+	border: mainMenuItemIIBorder;
+}
+.mainMenuItemEmphasis extends mainMenuItemII{
+	font: mainMenuItemEmphasisFont;
+	background: mainMenuItemEmphasisBg;
+}
+
+.mainMenuItemEmphasis:hover {
+	background: mainMenuItemEmphasisHoverBg;
+	font: mainMenuItemEmphasisHoverFont;
+	border: mainMenuItemIIHoverBorder;
+}
+
+.mainMenuItemEmphasis:pressed {
+	font: mainMenuItemEmphasisPressedFont;
+	background: mainMenuItemEmphasisHoverBg;
+}
+.mainMenuItemOffline extends mainMenuItemII{
+	font: mainMenuItemOfflineFont;
+	background: mainMenuItemOfflineBg;
+}
+.mainMenuItemOffline:hover {
+	font: mainMenuItemOfflineHoverFont;
+	background: mainMenuItemOfflineHoverBg;
+	border: mainMenuItemIIHoverBorder;
+}
+.mainMenuItemOffline:pressed {
+	font: mainMenuItemOfflinePressedFont;
+	background: mainMenuItemOfflineHoverBg;
+}
+.messagePal {
+	background: messagePalBg;
+	margin: 0px;
+	padding: 0px;
+	margin-left: 10%;
+    text-effect: smiley;
+    border: messagePalBorder;
+	layout: expand| hexpand;
+	width: 100%;
+	/*text-layout: left;
+    max-width: 90%;
+    min-width: 90%;*/
+	icon-image-align: center;
+		
+}
+.messagePal:hover{   
+	border: messagePalHoverBorder;
+}
+
+.message extends messagePal{
+	margin: 0px;
+	padding: 0px;
+	margin-right: 10%;
+	background: messageBg;
+	border: messageBorder;	
+	layout: left;
+	text-layout: left;
+	icon-image-align: center;
+}
+.message:hover{
+	border: messageHoverBorder;
+}
+.GmessagePal {
+	background: messagePalBg;
+	margin-top: 1;
+	margin-bottom: 1;
+	margin-left: 0;
+	margin-right: 0;
+	padding: 0;
+	padding-left: 1.5%;
+    text-effect: smiley;
+    border: messagePalBorder;
+	layout: expand| hexpand;
+	width: 100%;
+	/*text-layout: left;
+    max-width: 90%;
+    min-width: 90%;*/
+		
+}
+.GmessagePal:hover{   
+	border: messagePalHoverBorder;
+}
+
+.Gmessage extends GmessagePal{
+	background: messageBg;
+	border: messageBorder;	
+}
+.Gmessage:hover{
+	border: messageHoverBorder;
+}
+.notif{
+	padding: 5px;
+	width: 95%;
+	margin-left: 10;
+	margin-top: 10;
+	font-color: notifGFontColor;
+	font-size: small;
+	background: notifBg;
+}
+.notifR extends notif{
+	font-color: notifRFontColor;
+}
+.notifG extends notif{
+	font-color: notifGFontColor;
+}
+.smButton{
+	layout: right;
+}
+.smButton:hover {
+	background: titleBg;
+}
+.textFields{
+	padding: 0;
+	text-effect: smiley;
+	margin-left: 10;
+	background-color: textFieldsBgColor;
+	font: textFieldsFont;
+	width: 95%;
+	border: textFieldBorder;
+}
+.textFields:hover{
+	background-color: white;
+	font: textFieldsHoverFont;
+	border: textFieldHoverBorder;
+}
+.textFieldsFilter{
+	padding: 0;
+	background-color: textFieldsBgColor;
+	font: textFieldsFont;
+	layout: expand;
+}
+.textFieldsFilter:hover{
+	background-color: white;
+	font: textFieldsHoverFont;
+}
+
+
+/*
+**********************************************************************************************************************
+********        ******************************************************************************************************
+********  END   ******************************************************************************************************
+********        ******************************************************************************************************
+**********************************************************************************************************************
+*/
+
+.mailTicker {
+	ticker-step: 1;
+	padding-horizontal: 5;
+	layout: vertical-center;
+    font: mailTickerFont;
+}
+
+/**
+  * The element that displays the current input mode, e.g. "abc" or "Abc" or "123"
+  */
+info {
+	layout: right;
+    font-color: infoFontColor;
+	margin-right: 10;
+	background-color: argb( 170, 255, 255, 255 );	
+	font-size: small;
+}
+/**
+  * The element to display a text to an empty TextField to indicate the required input (e.g. "Enter username here ...") you can use TextField.setHelpText(String) or UiAccess.setTextfieldHelp(TextField, String):
+  */
+.help { 
+	font-color: gray; 
+	font-size: small;
+	 
+} 
+
+messageheadline{
+	margin: 0px;
+	padding: 0px;
+    font: messageheadlineFont; 
+	text-effect: smiley;
+	icon-image-align: center;
+}
+
+messagetext {
+	margin: 0px;
+	padding: 0px;
+	font: messagetextFont;	
+	layout: expand | left;
+	text-effect: smiley;
+	icon-image-align: center;
+	
+}
+
+.screenMessage {
+	title-menu: true;
+	layout: vertical-center | right;
+	/*background-color: #eee;*/
+	background-color: red;
+}
+
+
+
+
+/********************** Profile**********************/
+.myLabel { /*Profile Framed Form*/
+    background: bgc;	
+}
+.myLabelgistColour{ 
+	background: gistColour;
+}
+.myLabelItems{
+	font: myLabelItemsFont;
+	margin-top: 3px;
+	margin-bottom: 3px;
+	margin-left: 10;
+	margin-right: 10;
+	padding: 3;
+	layout: expand | left | horizontal-expand | vertical-center;
+	text-effect: smiley;
+	border: menuItemBorder;
+	include-label: true;
+}
+.myLabelItemsPic extends myLabelItems{
+	layout: horizontal-center ;
+	border: none;
+	
+}
+.myLabelItems:hover{
+	border: dropShadow;
+}
+
+
+/*  Not Sure */
+.myLabelInfo{
+	font: myLabelInfoFont;
+}
+
+.myLabelEditable{
+	background{
+		color: white;
+	}
+}
+
+.myItemLabel {
+	font: myItemLabelFont;
+	layout: left ;
+}
+
+
+
+
+
+
+/*
+******************************************************************************************************************
+**************    Scrollbar     **********************************************************************************
+******************************************************************************************************************
+*/
+scrollbar {
+	scrollbar-slider-color: #333;
+	scrollbar-slider-width: 4;
+	scrollbar-fadeout: true;
+	opacity: 80%;
+}
+
+
+/*
+**********************************************************************************************************************
+***********************  Commands Menu Final  ************************************************************************
+**********************************************************************************************************************
+*/
+
+menu {
+	padding: 0;
+	padding-bottom: 2;
+	background: menuBg;
+	expand-items: true;
+}
+
+
+menuItem {
+	padding: 3;
+	font: menuItemFont;
+	layout: left;
+	border: menuItemBorder;
+}
+
+/**
+  * This is a custom style for focused menu items.  
+  */
+menuItem:hover {
+	background: menuItemHoverBg;
+	font: menuItemHoverFont;
+	layout: left | horizontal-expand;
+}
+menuItem:pressed {
+	view-type: gray-out;
+}
+
+
+menubar {
+	background: titleBg;
+	font-style: bold;
+	font-size: normal;
+}
+
+leftcommand {
+	padding: 2;
+	font-color: leftcommandFontColor;
+	/*text-split-bottom-color: #ddd;*/
+}
+
+leftcommand:pressed {
+	font-color: leftcommandPressedFontColor;
+}
+
+rightcommand extends leftcommand {
+	layout: right;
+}
+
+rightcommand:pressed {
+	font-color: leftcommandPressedFontColor;
+}
+
+
+
+
