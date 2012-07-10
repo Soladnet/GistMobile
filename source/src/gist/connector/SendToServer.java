@@ -332,11 +332,11 @@ public class SendToServer {
             } else {
                 response = "-2";
             }
-//            if(http!=null)
             istrm.close();
             out.close();
             http.close();
-
+            
+            System.out.println(response+" is the response frm server");
             return response;
         } catch (IOException ex) {
             try {
@@ -348,10 +348,5 @@ public class SendToServer {
             System.out.println(ex.getMessage() + "<<<<<<<<<<<<<<<<<<<<<<");
             return "-2";
         }
-//        finally{
-//            try {
-//                
-//            } catch (IOException ex) {}
-//        }
     }
 }

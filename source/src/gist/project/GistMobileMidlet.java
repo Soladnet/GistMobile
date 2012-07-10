@@ -813,10 +813,10 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
             } else if (cmd.getLabel().equals(Locale.get("cmd.defriend"))) {
                 executeOperation("defriend", new String[]{friendList.getString(friendList.getSelectedIndex())}, 0, 0, 0);
             } else if (cmd.getLabel().equals(Locale.get("cmd.clearHist"))) {
-                String user = friendList.getString(friendList.getSelectedIndex());
-                user = user.substring(0, user.indexOf("\n"));
+                String [] userIn = TextUtil.splitAndTrim(friendList.getString(friendList.getSelectedIndex()), '\n');
                 try {
-                    removeRs(SendToServer.getUsername() + user);
+                    System.out.println("removing "+SendToServer.getUsername() + userIn[1]);
+                    removeRs("history",SendToServer.getUsername() + userIn[1]);
                     displayAlert(Locale.get("alert.successT"), Locale.get("alert.clrHist"), Image.createImage("/v.png"), AlertType.CONFIRMATION, 5000);
                 } catch (IOException ex) {
                 }
@@ -1552,6 +1552,7 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
     }
 
     private void fetchChat() {
+        System.out.println("Fetching chat....");
         String cPal = currentPal;
         String response = SendToServer.fChat();
         if (response.equals("0") || response.trim().equals("")) {
@@ -2827,7 +2828,32 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
         } catch (IOException ex) {
         }
     }
-
+    public void removeRs(String main,String sub) {
+        Object obj;
+        String database = "gistdata";
+        Hashtable ht;
+        try {
+            obj = getStorage().read(database);
+            if (obj != null) {
+                ht = (Hashtable) obj;
+                Object o = ht.get(main);
+                if(o != null){
+                    Hashtable hist = (Hashtable) o;
+                    hist.remove(sub);
+                    saveToRms(hist, "history");
+                }
+                ht.remove(main);
+            } else {
+                ht = new Hashtable();
+            }
+        } catch (IOException ex) {
+            ht = new Hashtable();
+        }
+        try {
+            getStorage().save(ht, database);
+        } catch (IOException ex) {
+        }
+    }
     public void commandAction(javax.microedition.lcdui.Command c, Displayable d) {
     }
 
