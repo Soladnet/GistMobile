@@ -816,7 +816,7 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
                 String user = friendList.getString(friendList.getSelectedIndex());
                 user = user.substring(0, user.indexOf("\n"));
                 try {
-                    getStorage().delete(SendToServer.getUsername() + user);
+                    removeRs(SendToServer.getUsername() + user);
                     displayAlert(Locale.get("alert.successT"), Locale.get("alert.clrHist"), Image.createImage("/v.png"), AlertType.CONFIRMATION, 5000);
                 } catch (IOException ex) {
                 }
