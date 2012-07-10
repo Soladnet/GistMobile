@@ -232,7 +232,7 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
                 }
             }
             if (state.equals("groupmembers")) {
-                friendList = (FilteredList) getFriendList(msg, offlineMsgSenders, FilteredList.MULTIPLE);
+                friendList = (FilteredList) getFriendList(msg, offlineMsgSenders,contact, FilteredList.MULTIPLE);
                 if (friendState < friendList.size()) {
                     friendList.focus(friendState);
                 }
@@ -242,7 +242,7 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
                 friendList.addCommand(CommandBuilder.getLogoutCmd());
                 friendList.addCommand(CommandBuilder.getExitCmd());
             } else {
-                friendList = (FilteredList) getFriendList(Locale.get("txt.friend"), offlineMsgSenders, FilteredList.IMPLICIT);
+                friendList = (FilteredList) getFriendList(Locale.get("txt.friend"), offlineMsgSenders,contact, FilteredList.IMPLICIT);
                 state = "Friends";
                 friendList.addCommand(CommandBuilder.getBackCmd());
                 friendList.addCommand(CommandBuilder.getViewProfile());
@@ -1141,7 +1141,7 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
                         if(chatScreen!=null)
                         if (TextUtil.splitAndTrim(pal, '\n')[1].equals(recvr)) {
                             //#style message
-                            si = new MessageItem(Locale.get("txt.me") + " | " + cal.format(conv.getDateTime()) + " " + conv.getStatus(), conv.getMessage());
+                            si = new MessageItem(cal.format(conv.getDateTime()) + " " + conv.getStatus(), conv.getMessage());
                             chatScreen.set(FramedForm.FRAME_CENTER, position, si);//format time to standard and display with msg - [SNDN] rep sending icon
                         }
                     }
@@ -1197,7 +1197,7 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
                 if (chatScreen != null) {
                     if (TextUtil.splitAndTrim(pal, '\n')[1].equals(recvr)) {
                         //#style message
-                        si = new MessageItem(Locale.get("txt.me") + " | " + cal.format(conv.getDateTime()) + " " + conv.getStatus(), conv.getMessage());
+                        si = new MessageItem(cal.format(conv.getDateTime()) + " " + conv.getStatus(), conv.getMessage());
                         chatScreen.set(FramedForm.FRAME_CENTER, position, si);//format time to standard and display with msg - [SNDN] rep sending icon
                     }
                 }
@@ -2025,10 +2025,9 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
         }
     }
 
-    private Displayable getFriendList(String title, Hashtable offlineSender, int listType) {
+    private Displayable getFriendList(String title, Hashtable offlineSender,Hashtable contact, int listType) {
         //#style mainMenuScreenTop
         FilteredList mylist = new FilteredList(title, listType);
-        Hashtable contact = (Hashtable) getContactMap(false);
         Enumeration off = offlineSender.keys();
         Enumeration c = contact.keys();
         //Dispay all those who left ofline message
