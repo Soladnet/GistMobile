@@ -151,7 +151,8 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
             menu.addCommand(CommandBuilder.getBackCmd());
             menu.addCommand(CommandBuilder.getLogoutCmd());
             menu.addCommand(CommandBuilder.getExitCmd());
-
+            
+            menu.setCommandListener(this);
             state = "Chat";
             //#style mailTicker
             menu.setTicker(new Ticker(getflckr()));
@@ -166,6 +167,7 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
             menu.addCommand(CommandBuilder.getBackCmd());
             menu.addCommand(CommandBuilder.getLogoutCmd());
             menu.addCommand(CommandBuilder.getExitCmd());
+            menu.setCommandListener(this);
             //#style mailTicker
             menu.setTicker(new Ticker(getflckr()));
             state = "Invite Friends";
@@ -180,7 +182,7 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
             menu.addCommand(CommandBuilder.getBackCmd());
             menu.addCommand(CommandBuilder.getLogoutCmd());
             menu.addCommand(CommandBuilder.getExitCmd());
-
+            menu.setCommandListener(this);
             //#style mailTicker
             menu.setTicker(new Ticker(getflckr()));
             state = "Setting";
@@ -211,6 +213,7 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
             menu.addCommand(CommandBuilder.getBackCmd());
             menu.addCommand(CommandBuilder.getLogoutCmd());
             menu.addCommand(CommandBuilder.getExitCmd());
+            menu.setCommandListener(this);
             //#style mailTicker
             menu.setTicker(new Ticker(getflckr()));
             state = "Chat2";
@@ -421,16 +424,20 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
                 //#style mainMenuItemAnimated
                 menu.append(Locale.get("txt.nogrpMsg"), null);
             } else {
+                groupIds = new Vector();
                 Enumeration keys = ht.keys();
                 while (keys.hasMoreElements()) {
                     String key = (String) keys.nextElement();
                     groupIds.addElement(key);
+                    System.out.println(ht.get(key)+".....................................................................");
+                    String groupName = ((Groups) ht.get(key)).getName();
+                    System.out.println(groupName+".....................................................................");
                     try {
                         //#style mainMenuItemAnimated
-                        menu.append(replaceString(replaceString(replaceString(replaceString(((Groups) ht.get(key)).getName(), "gd[str]", "|"), "gd[til]", "~"), "gd[att]", "@"), "gd[col]", ":"), Image.createImage("/group.png"));
+                        menu.append(replaceString(replaceString(replaceString(replaceString(groupName, "gd[str]", "|"), "gd[til]", "~"), "gd[att]", "@"), "gd[col]", ":"), Image.createImage("/group.png"));
                     } catch (IOException ex) {
                         //#style mainMenuItemAnimated
-                        menu.append(replaceString(replaceString(replaceString(replaceString(((Groups) ht.get(key)).getName(), "gd[str]", "|"), "gd[til]", "~"), "gd[att]", "@"), "gd[col]", ":"), null);
+                        menu.append(replaceString(replaceString(replaceString(replaceString(groupName, "gd[str]", "|"), "gd[til]", "~"), "gd[att]", "@"), "gd[col]", ":"), null);
                     }
                 }
             }
@@ -442,7 +449,7 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
             menu.addCommand(CommandBuilder.getBackCmd());
             menu.addCommand(CommandBuilder.getLogoutCmd());
             menu.addCommand(CommandBuilder.getExitCmd());
-            list.setCommandListener(this);
+            menu.setCommandListener(this);
             //#style mailTicker
             menu.setTicker(new Ticker(getflckr()));
             list = menu;
@@ -518,7 +525,7 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
             }
             menu.addCommand(CommandBuilder.getLogoutCmd());
             menu.addCommand(CommandBuilder.getExitCmd());
-            list.setCommandListener(this);
+            menu.setCommandListener(this);
             //#style mailTicker
             menu.setTicker(new Ticker(getflckr()));
             list = menu;
@@ -2740,6 +2747,7 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
                 db = (Hashtable) read;
             }
             obj = db.get(name);
+            System.out.println(name +"is reading....");
         } catch (IOException ex) {
             obj = null;
         }
