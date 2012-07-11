@@ -201,7 +201,8 @@ public class SendToServer {
 
     public static String fChat() {
         String url = getUrl();
-        String usermsg = "at=ap&bw=" + getUsername();
+        String usermsg = "at=ap&bw=" + getPhone();
+        System.out.println("fetchin for "+usermsg);
         return OpenConnection(url, usermsg);
     }
 

@@ -279,7 +279,9 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
             chatScreen.setTitle(screen.getTitle());
             if (!state.equals("chatmember")) {//chat with friends
                 String[] currentPalUsername = TextUtil.splitAndTrim(currentPal, '\n');
-                readOfflineMsgFrom(currentPalUsername[1]);
+                if(readOfflineMsgFrom(currentPalUsername[1])){
+                    chatScreen.setTitle(screen.getTitle().substring(5));
+                }
                 state = "listFriends";
             } else {//chat with groups
                 readOfflineMsgFrom((String) groupIds.elementAt(0));
@@ -424,20 +426,43 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
                 //#style mainMenuItemAnimated
                 menu.append(Locale.get("txt.nogrpMsg"), null);
             } else {
+                Hashtable offlineMsgSenders = new Hashtable();
                 groupIds = new Vector();
                 Enumeration keys = ht.keys();
+                
+                Vector vc = getOflineMsgSenders();//read from inbox i.e offline msgs
+                Enumeration elements = vc.elements();
+
+                while (elements.hasMoreElements()) {//reading all phone for offline senders
+                    String offlineSender = elements.nextElement().toString();
+                    if (ht.containsKey(offlineSender)) {//if the user that sends the message is ur friend or is among ur contacts
+                        offlineMsgSenders.put(offlineSender, "");
+//                mylist[i++] = replaceString(replaceString(replaceString(replaceString(cont.getName()+"\n"+cont.getPersonalMsg()+"\n"+cont.getPhone(), "gd[str]", "|"),"gd[til]","~"),"gd[att]","@"),"gd[col]",":");
+                    }
+                }
+
                 while (keys.hasMoreElements()) {
                     String key = (String) keys.nextElement();
                     groupIds.addElement(key);
-                    System.out.println(ht.get(key)+".....................................................................");
+                    
                     String groupName = ((Groups) ht.get(key)).getName();
-                    System.out.println(groupName+".....................................................................");
                     try {
-                        //#style mainMenuItemAnimated
-                        menu.append(replaceString(replaceString(replaceString(replaceString(groupName, "gd[str]", "|"), "gd[til]", "~"), "gd[att]", "@"), "gd[col]", ":"), Image.createImage("/group.png"));
+                        if (offlineMsgSenders.containsKey(key)) {
+                            //#style mainMenuItemAnimated
+                            menu.append("nwMSG "+replaceString(replaceString(replaceString(replaceString(groupName, "gd[str]", "|"), "gd[til]", "~"), "gd[att]", "@"), "gd[col]", ":"), Image.createImage("/group.png"));
+                        }else{
+                            //#style mainMenuItemAnimated
+                            menu.append(replaceString(replaceString(replaceString(replaceString(groupName, "gd[str]", "|"), "gd[til]", "~"), "gd[att]", "@"), "gd[col]", ":"), Image.createImage("/group.png"));
+                        }
+                        
                     } catch (IOException ex) {
-                        //#style mainMenuItemAnimated
-                        menu.append(replaceString(replaceString(replaceString(replaceString(groupName, "gd[str]", "|"), "gd[til]", "~"), "gd[att]", "@"), "gd[col]", ":"), null);
+                        if (offlineMsgSenders.containsKey(key)) {
+                            //#style mainMenuItemAnimated
+                            menu.append("nwMSG "+replaceString(replaceString(replaceString(replaceString(groupName, "gd[str]", "|"), "gd[til]", "~"), "gd[att]", "@"), "gd[col]", ":"), null);
+                        }else{
+                            //#style mainMenuItemAnimated
+                            menu.append(replaceString(replaceString(replaceString(replaceString(groupName, "gd[str]", "|"), "gd[til]", "~"), "gd[att]", "@"), "gd[col]", ":"), null);
+                        }
                     }
                 }
             }
@@ -2674,7 +2699,8 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
         }
     }
 
-    private void readOfflineMsgFrom(String user) {
+    private boolean readOfflineMsgFrom(String user) {
+        boolean value = false;
         Object obj = readRs("inbox");
         Vector vec;
         if (obj != null) {
@@ -2684,6 +2710,9 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
         }
         vec.trimToSize();
         if (!vec.isEmpty()) {
+            if(vec.contains(user)){
+                value = true;
+            }
             vec.removeElement(user);
             if (vec.isEmpty()) {
                 removeRs("inbox");
@@ -2694,6 +2723,7 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
                 saveToRms(vec, "inbox");
             }
         }
+        return value;
     }
 
     private Vector getOflineMsgSenders(/*
