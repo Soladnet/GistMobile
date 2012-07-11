@@ -1546,9 +1546,10 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
         for(int i = 1;i<=userhist.size();i++){
             Integer key = new Integer(i);
             Conversation conver = (Conversation) userhist.get(key);
-            System.out.println(i+"    PING!!!");
-            Hashtable ht = (Hashtable)getContactMap(false);
-            Contacts cont = (Contacts)ht.get(conver.getSender());
+            System.out.println(i+"    PING!!!"+key);
+            //Hashtable ht = (Hashtable)getContactMap(false);
+            
+            //Contacts cont = (Contacts)ht.get(conver.getSender());
             System.out.println(i+"    PING!!!"+conver.getSender());
             MessageItem si;
             if (conver.getSender().equalsIgnoreCase(SendToServer.getPhone())) {//the sender is  me    

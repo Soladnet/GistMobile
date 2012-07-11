@@ -14,12 +14,14 @@ public class MyCalendar {
         String arr[] = TextUtil.splitAndTrim(str, '@');
         String deviceDate = Locale.formatDate(System.currentTimeMillis(), "yyyy-MM-dd");
         System.out.println(deviceDate+"+++++++++++++++++++++++++"+arr[0]);
+        String result;
         if(arr[0].equals(formatDeviceDate(deviceDate))){
-            return "Today "+arr[1]+" ";
+            result =  "Today "+arr[1]+" ";
         }else{
-            return arr[0]+" "+arr[1]+" ";
+            result = arr[0]+" "+arr[1]+" ";
         }
-        
+        System.out.println(deviceDate+"+++++++++++++++++++++++++"+arr[0]+"++++++++++++"+result);
+        return result;
     }
     public String[] getDeviceTime(){
         String date = formatDeviceDate(Locale.formatDate(System.currentTimeMillis(), "yyyy-MM-dd"));
