@@ -1561,6 +1561,7 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
             if (response.endsWith("|")) {
                 response = response.substring(0, response.length() - 1);
             }
+            System.out.println(response+" is the response for fethhat");
             String[] messages = TextUtil.splitAndTrim(response, '|');
             for (int i = 0; i < messages.length; i++) {
                 String[] msg = TextUtil.splitAndTrim(replaceString(replaceString(replaceString(messages[i], "gd[str]", "|"), "gd[col]", ":"), "gd[att]", "@"), '~');
