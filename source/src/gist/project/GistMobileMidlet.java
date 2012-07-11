@@ -1565,7 +1565,7 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
                 System.out.println(i+"    PING!!!2");
                 if (state.equals("groupChat")) {
                     //#style GmessagePal
-                    si = new MessageItem(Locale.get("txt.me") + " " + cal.format(conver.getDateTime()), conver.getMessage());
+                    si = new MessageItem(conver.getSenderName() + " " + cal.format(conver.getDateTime()), conver.getMessage());
                 } else {
                     //#style messagePal
                     si = new MessageItem(cal.format(conver.getDateTime()), conver.getMessage());
@@ -1614,7 +1614,7 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
                 System.out.println(userhist.size()+" <============"+i);
                 String[] val = TextUtil.splitAndTrim(msg[2], ' ');
                 int locateItem = userhist.size()+1;
-                Conversation conversation = new Conversation(locateItem + "", msg[0], val[0] + "@" + val[1], "", msg[1]);
+                Conversation conversation = new Conversation(locateItem + "", msg[0], val[0] + "@" + val[1], "", replaceString(msg[1], "gd[til]", "~"));
                 userhist.put(new Integer(locateItem), conversation);
                 
                 System.out.println(userhist.size()+" <============>");
@@ -1629,7 +1629,7 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
                         if (conversation.getSender().equalsIgnoreCase(currentPalUsername[1])) {
                             MyCalendar cal = new MyCalendar();
                             //#style messagePal
-                            MessageItem si = new MessageItem(cal.format(conversation.getDateTime()), replaceString(conversation.getMessage(), "gd[til]", "~"));
+                            MessageItem si = new MessageItem(cal.format(conversation.getDateTime()), conversation.getMessage());
 //                            //#style messagePal
                             chatScreen.append(FramedForm.FRAME_CENTER, si);
                             if (chatScreen.size(FramedForm.FRAME_CENTER) != 0) {
@@ -1684,7 +1684,7 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
                     if (chatScreen != null) {
                         locateItem = chatScreen.size(FramedForm.FRAME_CENTER);
                     }
-                    Conversation conversation = new Conversation(locateItem + "", replaceString(replaceString(replaceString(replaceString(msg[0], "gd[str]", "|"), "gd[til]", "~"), "gd[att]", "@"), "gd[col]", ":"), val[0] + "@" + val[1], "", replaceString(replaceString(replaceString(replaceString(msg[1], "gd[str]", "|"), "gd[til]", "~"), "gd[att]", "@"), "gd[col]", ":"));
+                    Conversation conversation = new Conversation(locateItem + "", msg[0], val[0] + "@" + val[1], "", replaceString(msg[1], "gd[til]", "~"));
                     conversation.setGroupId(msg[5]);
                     conversation.setSenderName(msg[4]);
                     userGhist.put(new Integer(locateItem), conversation);
