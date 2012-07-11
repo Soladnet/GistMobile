@@ -13,7 +13,7 @@ public class MyCalendar {
     public String format(String str){
         String arr[] = TextUtil.splitAndTrim(str, '@');
         String deviceDate = Locale.formatDate(System.currentTimeMillis(), "yyyy-MM-dd");
-        System.out.println(deviceDate+"+++++++++++++++++++++++++ "+arr[0]);
+        System.out.println(deviceDate+"+++++++++++++++++++++++++"+arr[0]);
         if(arr[0].equals(formatDeviceDate(deviceDate))){
             return "Today "+arr[1]+" ";
         }else{
