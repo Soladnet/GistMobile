@@ -484,6 +484,7 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
             List menu;
             String[] item = new String[]{Locale.get("list.conversation"), Locale.get("list.members")};
             menu = createMenuList(item, List.IMPLICIT);
+            
             menu.setTitle(screen.getTitle());
             list.removeAllCommands();
             list.addCommand(List.SELECT_COMMAND);
@@ -721,6 +722,10 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
                     String id = (String) groupIds.elementAt(x);
                     groupIds.removeAllElements();
                     groupIds.addElement(id);
+                    boolean val = false;
+                    if(readOfflineMsgFrom(id)){
+                        selected = selected.substring(5);
+                    }
                     groupIds.trimToSize();
                     getDisplay().setCurrent(getScreen(new List(selected, List.IMPLICIT), 19, ""));
                 } else if (state.equals("chatmember")) {//group chat
