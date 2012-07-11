@@ -1554,7 +1554,7 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
             if (conver.getSender().equalsIgnoreCase(SendToServer.getPhone())) {//the sender is  me    
                 System.out.println(i+"    PING!!!");
                 if(state.equals("groupChat")){
-                    System.out.println(conver.getDateTime()+"??????????????????????");
+                    System.out.println(cal.format(conver.getDateTime())+"??????????????????????");
                     //#style Gmessage
                     si = new MessageItem(Locale.get("txt.me") + " " + cal.format(conver.getDateTime()) + " " + conver.getStatus(), conver.getMessage());
                 }else{
@@ -1565,7 +1565,7 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
             } else {
                 System.out.println(i+"    PING!!!2");
                 if (state.equals("groupChat")) {
-                    System.out.println(conver.getDateTime()+"??????????????????????");
+                    System.out.println(cal.format(conver.getDateTime())+"??????????????????????");
                     //#style GmessagePal
                     si = new MessageItem(conver.getSenderName() + " " + cal.format(conver.getDateTime()), conver.getMessage());
                 } else {
