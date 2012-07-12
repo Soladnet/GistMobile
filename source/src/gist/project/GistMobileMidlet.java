@@ -2882,9 +2882,9 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
                 if(o != null){
                     Hashtable hist = (Hashtable) o;
                     hist.remove(sub);
-                    saveToRms(hist, "history");
+                    saveToRms(hist, main);
                 }
-                ht.remove(main);
+                //ht.remove(main);
             } else {
                 ht = new Hashtable();
             }

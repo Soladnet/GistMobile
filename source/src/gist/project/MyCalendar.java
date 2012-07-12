@@ -12,13 +12,16 @@ public class MyCalendar {
     public String format(String str) {
         String arr[] = TextUtil.splitAndTrim(str, '@');
         String deviceDate[] = getDeviceTime();
+        System.out.println(deviceDate[0] + "+++++++++++++++++++++++++" + arr[0] + "++++++++++++");
         String result;
         if (arr[0].equals(deviceDate[0])) {
+            System.out.println(deviceDate[0] + "+++++++++++++++++++++++++" + arr[0] + "-----------------");
             result = "Today " + formatTime(arr[1]) + " ";
         } else {
+            System.out.println(deviceDate[0] + "+++++++++++++++++++++++++" + arr[0] + "************");
             result = formatDate(arr[0]) + " " + formatTime(arr[1]) + " ";
         }
-        System.out.println(deviceDate[0] + "+++++++++++++++++++++++++" + arr[0] + "++++++++++++" + result);
+        
         return result;
     }
 
