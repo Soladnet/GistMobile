@@ -1116,14 +1116,14 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
             MessageItem si;
             if (!msg[0].equals("groupChat")) {//send to contact
                 //#style message
-                si = new MessageItem(cal.format(timedate[0] + "@" + timedate[1]) + " [SNDN] ", msg[1]);//format time to standard and display with msg - [SNDN] rep sending icon
+                si = new MessageItem(cal.format(conversation.getDateTime()) + " [SNDN] ", msg[1]);//format time to standard and display with msg - [SNDN] rep sending icon
                 chatScreen.append(FramedForm.FRAME_CENTER, si);//display content on chatscreen
                 size = chatScreen.size(FramedForm.FRAME_CENTER) - 1;//get position of current item
                 chatTrack.put(SendToServer.getUsername() + recvr + size, conversation);//keeps track of item and there 
 
             } else {//senf to group
                 //#style Gmessage
-                si = new MessageItem(Locale.get("txt.me") + " | " + cal.format(timedate[0] + "@" + timedate[1]) + " [SNDN] ", msg[1]);//format time to standard and display with msg - [SNDN] rep sending icon
+                si = new MessageItem(Locale.get("txt.me") + " | " + cal.format(conversation.getDateTime()) + " [SNDN] ", msg[1]);//format time to standard and display with msg - [SNDN] rep sending icon
                 chatScreen.append(FramedForm.FRAME_CENTER, si);//display content on chatscreen
                 size = chatScreen.size(FramedForm.FRAME_CENTER) - 1;//get position of current item
                 groupTrack.put(SendToServer.getUsername() + recvr + size, conversation);//keeps track of item and there 
@@ -3010,7 +3010,7 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
                 executeOperation("groupRooms", new String[]{SendToServer.getUsername()}, 10000, 0, 5);
                 executeOperation("getUsersWithBDFor", new String[]{}, 60000, 0, 50);
 
-                executeOperation("checkPals", new String[]{"1"}, 120000, 0, 0);
+                executeOperation("checkPals", new String[]{"1"}, 10000, 0, 0);
                 executeOperation("sendContact", new String[]{}, 300000, 0, 5);
 
             } else {
