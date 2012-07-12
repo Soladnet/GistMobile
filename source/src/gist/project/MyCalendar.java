@@ -12,10 +12,10 @@ public class MyCalendar {
     
     public String format(String str){
         String arr[] = TextUtil.splitAndTrim(str, '@');
-        String deviceDate = Locale.formatDate(System.currentTimeMillis(), "yyyy-MM-dd");
-        System.out.println(deviceDate+"+++++++++++++++++++++++++"+arr[0]);
+        String deviceDate[] = getDeviceTime();
+        System.out.println(formatDeviceDate(deviceDate[0])+"+++++++++++++++++++++++++"+arr[0]);
         String result;
-        if(arr[0].equals(formatDeviceDate(deviceDate))){
+        if(arr[0].equals(formatDeviceDate(deviceDate[0]))){
             result =  "Today "+arr[1]+" ";
         }else{
             result = arr[0]+" "+arr[1]+" ";
@@ -25,7 +25,7 @@ public class MyCalendar {
     }
     public String[] getDeviceTime(){
         String date = formatDeviceDate(Locale.formatDate(System.currentTimeMillis(), "yyyy-MM-dd"));
-        String time = formatDeviceTime(Locale.formatDate(System.currentTimeMillis(),"HH mm"));
+        String time = formatDeviceTime(Locale.formatDate(System.currentTimeMillis(),"HH:mm"));
         return new String[]{date,time};
     }
     private String formatDeviceDate(String str){
@@ -46,7 +46,7 @@ public class MyCalendar {
         return date;
     }
     private String formatDeviceTime(String uhr){
-        String[] t = TextUtil.splitAndTrim(uhr, ' ');
+        String[] t = TextUtil.splitAndTrim(uhr, ':');
         String ampm;
         int hr,min;
         

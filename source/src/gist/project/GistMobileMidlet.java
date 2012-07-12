@@ -1546,11 +1546,11 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
         for(int i = 1;i<=userhist.size();i++){
             Integer key = new Integer(i);
             Conversation conver = (Conversation) userhist.get(key);
-            System.out.println(i+"    PING!!!"+key);
+            System.out.println(i+"    PING!!!"+userhist.get(key));
             //Hashtable ht = (Hashtable)getContactMap(false);
             
             //Contacts cont = (Contacts)ht.get(conver.getSender());
-            System.out.println(i+"    PING!!!"+conver.getSender());
+            System.out.println(i+"    PING!!!");
             MessageItem si;
             if (conver.getSender().equalsIgnoreCase(SendToServer.getPhone())) {//the sender is  me    
                 System.out.println(i+"    PING!!!");
@@ -1686,6 +1686,9 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
                     int locateItem = 1;
                     if (chatScreen != null) {
                         locateItem = chatScreen.size(FramedForm.FRAME_CENTER);
+                        if(locateItem==0){
+                            locateItem++;
+                        }
                     }
                     Conversation conversation = new Conversation(locateItem + "", msg[0], val[0] + "@" + val[1], "", replaceString(msg[1], "gd[til]", "~"));
                     conversation.setGroupId(msg[5]);
