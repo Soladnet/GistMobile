@@ -202,7 +202,6 @@ public class SendToServer {
     public static String fChat() {
         String url = getUrl();
         String usermsg = "at=ap&bw=" + getPhone();
-        System.out.println("fetchin for "+usermsg);
         return OpenConnection(url, usermsg);
     }
 
@@ -305,7 +304,6 @@ public class SendToServer {
             OutputStream out = http.openOutputStream();
             out.write(msg.getBytes());
             out.flush();
-            System.out.println(http.getResponseCode() + " is response code");
             if (http.getResponseCode() == HttpConnection.HTTP_OK) {
                 int len = (int) http.getLength();
                 istrm = http.openInputStream();
@@ -341,7 +339,6 @@ public class SendToServer {
             return response;
         } catch (IOException ex) {
             try {
-                System.out.println("Closing http connection...");
                 http.close();
             } catch (IOException ex1) {
                 ex1.printStackTrace();

@@ -65,14 +65,6 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
     private void init() {
         groupTrack = new Hashtable();
         chatTrack = new Hashtable();
-        Hashtable ht = new Hashtable();
-        ht.put(new Integer(1), "One");
-        ht.put(new Integer(3), "Three");
-        ht.put(new Integer(2), "Two");
-        Enumeration enu = ht.elements();
-        while(enu.hasMoreElements()){
-            System.out.println(enu.nextElement().toString());
-        }
         openingScreen();
     }
 
@@ -845,7 +837,6 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
             } else if (cmd.getLabel().equals(Locale.get("cmd.clearHist"))) {
                 String [] userIn = TextUtil.splitAndTrim(friendList.getString(friendList.getSelectedIndex()), '\n');
                 try {
-                    System.out.println("removing "+SendToServer.getUsername() + userIn[1]);
                     removeRs("history",SendToServer.getUsername() + userIn[1]);
                     displayAlert(Locale.get("alert.successT"), Locale.get("alert.clrHist"), Image.createImage("/v.png"), AlertType.CONFIRMATION, 5000);
                 } catch (IOException ex) {
@@ -1259,7 +1250,6 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
             saveToRms(hist, "history");
 
         }
-        System.out.println("End of sending mesaage attempt " + testCount);
     }
 
     public void sendFeedBack(String feedback, int testCount, int attempt) {
@@ -1520,7 +1510,6 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
     private void displayChat() {
         chatScreen.deleteAll(FramedForm.FRAME_CENTER);
         String[] currentPalUsername = TextUtil.splitAndTrim(currentPal, '\n');
-        System.out.println("displayChat               1");
         Object obj = readRs("history");
         Hashtable hist;
         if (obj == null) {
@@ -1546,16 +1535,9 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
         for(int i = 1;i<=userhist.size();i++){
             Integer key = new Integer(i);
             Conversation conver = (Conversation) userhist.get(key);
-            System.out.println(i+"    PING!!!"+userhist.get(key));
-            //Hashtable ht = (Hashtable)getContactMap(false);
-            
-            //Contacts cont = (Contacts)ht.get(conver.getSender());
-            System.out.println(i+"    PING!!!");
             MessageItem si;
             if (conver.getSender().equalsIgnoreCase(SendToServer.getPhone())) {//the sender is  me    
-                System.out.println(i+"    PING!!!");
                 if(state.equals("groupChat")){
-                    System.out.println(cal.format(conver.getDateTime())+"??????????????????????");
                     //#style Gmessage
                     si = new MessageItem(Locale.get("txt.me") + " " + cal.format(conver.getDateTime()) + " " + conver.getStatus(), conver.getMessage());
                 }else{
@@ -1564,9 +1546,7 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
                 }
                 
             } else {
-                System.out.println(i+"    PING!!!2");
                 if (state.equals("groupChat")) {
-                    System.out.println(cal.format(conver.getDateTime())+"??????????????????????");
                     //#style GmessagePal
                     si = new MessageItem(conver.getSenderName() + " " + cal.format(conver.getDateTime()), conver.getMessage());
                 } else {
@@ -1576,7 +1556,6 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
             }
             chatScreen.append(FramedForm.FRAME_CENTER, si);
         }
-        System.out.println("displayChat               7");
         if (chatScreen.size(FramedForm.FRAME_CENTER) != 0) {
             chatScreen.setActiveFrame(FramedForm.FRAME_CENTER);
             chatScreen.focus(chatScreen.size(FramedForm.FRAME_CENTER) - 1);
@@ -1585,7 +1564,6 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
     }
 
     private void fetchChat() {
-        System.out.println("Fetching chat....");
         String cPal = currentPal;
         String response = SendToServer.fChat();
         if (response.equals("0") || response.trim().equals("")) {
@@ -1594,7 +1572,6 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
             if (response.endsWith("|")) {
                 response = response.substring(0, response.length() - 1);
             }
-            System.out.println(response+" is the response for fethhat");
             String[] messages = TextUtil.splitAndTrim(response, '|');
             for (int i = 0; i < messages.length; i++) {
                 String[] msg = TextUtil.splitAndTrim(replaceString(replaceString(replaceString(messages[i], "gd[str]", "|"), "gd[col]", ":"), "gd[att]", "@"), '~');
@@ -1604,7 +1581,6 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
                 if (obj == null) {
                     hist = new Hashtable();
                 } else {
-                    System.out.println("gothistory now converting....");
                     hist = (Hashtable) obj;
                 }
                 Object o = hist.get(SendToServer.getUsername() + msg[0]);
@@ -1614,16 +1590,12 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
                 } else {
                     userhist = (Hashtable) o;
                 }
-                System.out.println(userhist.size()+" <============"+i);
                 String[] val = TextUtil.splitAndTrim(msg[2], ' ');
                 int locateItem = userhist.size()+1;
                 Conversation conversation = new Conversation(locateItem + "", msg[0], val[0] + "@" + val[1], "", replaceString(msg[1], "gd[til]", "~"));
                 userhist.put(new Integer(locateItem), conversation);
-                
-                System.out.println(userhist.size()+" <============>");
                 hist.put(SendToServer.getUsername() + msg[0], userhist);
                 saveToRms(hist, "history");
-                System.out.println(userhist.size()+" <============>"+i);
                 if (cPal.equals(currentPal) && !cPal.equals("") && chatScreen!=null) {
                     if (msg.length > 1) {
                         //alert the server that message with id number msg[3] has been dilivered successfully
@@ -1647,7 +1619,6 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
                         }
                     }
                 } else {
-                    System.out.println(conversation.getSender()+"::::::::::::::"+i);
                     offlineMsgStore(conversation.getSender());
                     //soundPlayer.startP1();
                 }
@@ -2790,7 +2761,6 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
                 db = (Hashtable) read;
             }
             obj = db.get(name);
-            System.out.println(name +"is reading....");
         } catch (IOException ex) {
             obj = null;
         }
@@ -2984,7 +2954,6 @@ public class GistMobileMidlet extends MIDlet implements CommandListener {
         try {
             getStorage().deleteAll();
         } catch (IOException ex) {
-            System.out.println(ex.getMessage()+" when deleting all rms");
         }
         if (rsIsAvailable("gistdata")) {
             Object obj = readRs("userLogin");
